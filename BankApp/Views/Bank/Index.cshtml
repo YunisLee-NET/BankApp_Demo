@@ -1,0 +1,39 @@
+﻿
+@model List<ApplicationUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_BankLayout.cshtml";
+}
+
+
+<div class="container">
+    <h1>İstifadəçilər</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Hesab sayı</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.ID</td>
+                    <td>@x.Name</td>
+                    <td>@x.Surname</td>
+                    <td>
+                        <getaccountcount application-user-id="@x.ID"></getaccountcount>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>
+
